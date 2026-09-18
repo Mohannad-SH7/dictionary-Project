@@ -56,7 +56,14 @@ public class ClientHandler implements Runnable {
                 String result = dictionary.search(request);
 
                 if (result != null) {
-                    out.println("✅ " + result);
+                    // The client reads one line for each request. Keep the
+                    // response on one line even when a definition contains
+                    // line breaks.
+                    String singleLineResult = result
+                            .replace('\r', ' ')
+                            .replace('\n', ' ')
+                            .trim();
+                    out.println("✅ " + singleLineResult);
                 } else {
                     out.println("❌ Word not found: \"" + request + "\"");
                 }
