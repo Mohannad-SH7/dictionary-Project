@@ -181,7 +181,7 @@ public class ClientGUI {
             String response = in.readLine();
             appendResult("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
             appendResult("🔎 Word: " + word + "\n");
-            appendResult("📖 " + response + "\n");
+            appendResult("📖 " + formatDefinition(response) + "\n");
             wordInput.setText("");
             wordInput.requestFocus();
 
@@ -190,6 +190,14 @@ public class ClientGUI {
             statusLabel.setText("🔴 Connection lost!");
             statusLabel.setForeground(Color.RED);
         }
+    }
+
+    private String formatDefinition(String response) {
+        if (response == null) {
+            return "❌ No response from server.";
+        }
+
+        return response.replaceAll("\\s+(?=\\d+\\.\\s)", "\n    ");
     }
 
     // ── إضافة نص للـ Result Area ──
