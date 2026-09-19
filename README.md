@@ -42,3 +42,4 @@ In another terminal, start the client:
 ```bash
 java -cp "out/production/DictionaryProject:lib/gson-2.10.1.jar" client.ClientGUI
 ```
+<img width="1920" height="1080" alt="Screenshot From 2026-09-19 05-34-11" src="https://github.com/user-attachments/assets/240e5440-0aef-42db-8283-764a4d48d3e7" />
